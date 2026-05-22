@@ -1,0 +1,46 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-05-22",
+  "description": "Registry of all output sinks and their contracts. All outputs route through the-pen first.",
+  "sweeper": {
+    "name": "the-pen",
+    "repo": "TML-4PM/the-pen",
+    "description": "Universal intake gate. Every output is sent here for receipt, logging, and routing confirmation before any downstream sink.",
+    "endpoint": "https://the-pen.vercel.app/api/receive",
+    "protocol": "POST JSON",
+    "requiredFields": ["source", "tenant_id", "event_type", "payload", "timestamp"]
+  },
+  "sinks": [
+    {
+      "name": "supabase-persist",
+      "type": "db",
+      "folder": "outputs/sinks/supabase-persist",
+      "description": "Persists normalised records to Supabase. Primary long-term store.",
+      "tables": ["ingestion_records", "output_runs", "sweep_log"]
+    },
+    {
+      "name": "tenant-notification",
+      "type": "email",
+      "folder": "outputs/sinks/tenant-notification",
+      "description": "Sends email/in-app notifications to tenant users on key events"
+    },
+    {
+      "name": "mcp-relay",
+      "type": "api",
+      "folder": "outputs/sinks/mcp-relay",
+      "description": "Relays structured events to TML-4PM/mcp-command-centre for agentic processing"
+    },
+    {
+      "name": "template-render",
+      "type": "api",
+      "folder": "outputs/sinks/template-render",
+      "description": "Triggers template rendering pipeline — fills variables, emits rendered output"
+    },
+    {
+      "name": "export-file",
+      "type": "file",
+      "folder": "outputs/sinks/export-file",
+      "description": "Generates CSV/JSON/PDF exports and pushes to S3 or Supabase Storage"
+    }
+  ]
+}

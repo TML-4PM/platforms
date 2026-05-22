@@ -1,0 +1,79 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-05-22",
+  "description": "Registry of all T4H platform widgets. Machine-readable. Every widget folder must have an entry here.",
+  "widgets": [
+    {
+      "name": "stat-card",
+      "category": "display",
+      "description": "Single KPI stat card with label, value, delta, and trend sparkline",
+      "folder": "widgets/stat-card",
+      "status": "active",
+      "dataRequires": ["value", "label"],
+      "dataOptional": ["delta", "trend", "unit", "icon"]
+    },
+    {
+      "name": "feed-list",
+      "category": "feed",
+      "description": "Scrollable list of ingestion records or activity items",
+      "folder": "widgets/feed-list",
+      "status": "active",
+      "dataRequires": ["items"],
+      "dataOptional": ["maxItems", "filter", "groupBy"]
+    },
+    {
+      "name": "tenant-switcher",
+      "category": "action",
+      "description": "Dropdown to switch between tenants for multi-tenant admin users",
+      "folder": "widgets/tenant-switcher",
+      "status": "active",
+      "dataRequires": ["tenants", "currentTenant"],
+      "dataOptional": []
+    },
+    {
+      "name": "ingestion-status",
+      "category": "display",
+      "description": "Live status panel showing ingestion source health and last run",
+      "folder": "widgets/ingestion-status",
+      "status": "active",
+      "dataRequires": ["sources"],
+      "dataOptional": ["showErrors", "compact"]
+    },
+    {
+      "name": "output-log",
+      "category": "feed",
+      "description": "Audit-style log of output runs and sweep confirmations",
+      "folder": "widgets/output-log",
+      "status": "active",
+      "dataRequires": ["runs"],
+      "dataOptional": ["filter", "limit"]
+    },
+    {
+      "name": "template-picker",
+      "category": "input",
+      "description": "Template selection and variable injection UI",
+      "folder": "widgets/template-picker",
+      "status": "active",
+      "dataRequires": ["templates"],
+      "dataOptional": ["onSelect", "tenantId", "type"]
+    },
+    {
+      "name": "branding-editor",
+      "category": "input",
+      "description": "White-label branding config editor — logo, colours, fonts, domain",
+      "folder": "widgets/branding-editor",
+      "status": "active",
+      "dataRequires": ["tenantId", "currentConfig"],
+      "dataOptional": ["onSave"]
+    },
+    {
+      "name": "sweep-monitor",
+      "category": "display",
+      "description": "Shows pending, swept, and failed outputs. Confirms the-pen has received each output.",
+      "folder": "widgets/sweep-monitor",
+      "status": "active",
+      "dataRequires": ["sweepLog"],
+      "dataOptional": ["tenantId", "autoRefresh"]
+    }
+  ]
+}

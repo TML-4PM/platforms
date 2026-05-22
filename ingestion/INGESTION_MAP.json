@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-05-22",
+  "description": "Registry of all ingestion sources. Machine-readable. Maps source → normaliser → router.",
+  "sources": [
+    {
+      "name": "webhook-generic",
+      "type": "webhook",
+      "folder": "ingestion/sources/webhook-generic",
+      "description": "Catch-all webhook receiver. Accepts any POST, stores raw, routes by content-type header.",
+      "routesTo": ["the-pen", "ingestion_records"]
+    },
+    {
+      "name": "form-submit",
+      "type": "webhook",
+      "folder": "ingestion/sources/form-submit",
+      "description": "Intake for all tenant-facing form submissions",
+      "routesTo": ["the-pen", "ingestion_records", "tenant-notifications"]
+    },
+    {
+      "name": "github-events",
+      "type": "webhook",
+      "folder": "ingestion/sources/github-events",
+      "description": "GitHub webhook receiver — push, PR, issue, deployment events",
+      "routesTo": ["the-pen", "mcp-command-centre"]
+    },
+    {
+      "name": "file-upload",
+      "type": "upload",
+      "folder": "ingestion/sources/file-upload",
+      "description": "S3/Supabase Storage ingestion of CSV, JSON, PDF uploads",
+      "routesTo": ["the-pen", "ingestion_records"]
+    },
+    {
+      "name": "scheduled-poll",
+      "type": "poll",
+      "folder": "ingestion/sources/scheduled-poll",
+      "description": "Cron-triggered API poll for external data sources",
+      "routesTo": ["ingestion_records"]
+    }
+  ]
+}

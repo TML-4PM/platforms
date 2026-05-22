@@ -1,0 +1,23 @@
+{
+  "slug": "ai4tradies",
+  "name": "AI4Tradies",
+  "description": "Full-service AI for tradies — quotes, compliance, scheduling, comms",
+  "domain": "ai4tradies.org",
+  "subdomain": "ai4tradies",
+  "plan": "enterprise",
+  "branding": {
+    "primaryColor": "#FF6B35",
+    "secondaryColor": "#1A1A2E",
+    "logoUrl": "/tenants/ai4tradies/assets/logo.svg",
+    "fontDisplay": "Cabinet Grotesk",
+    "fontBody": "Satoshi"
+  },
+  "features": {
+    "widgets": ["stat-card", "feed-list", "ingestion-status", "output-log", "template-picker"],
+    "ingestion": ["webhook-generic", "form-submit", "file-upload"],
+    "outputs": ["supabase-persist", "tenant-notification", "template-render"],
+    "templateTypes": ["quote", "invoice", "compliance-checklist", "job-summary"]
+  },
+  "repo": "TML-4PM/ai4tradies",
+  "status": "active"
+}

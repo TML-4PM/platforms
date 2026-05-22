@@ -1,0 +1,21 @@
+{
+  "slug": "holo-org",
+  "name": "Holo Org",
+  "description": "Holistic organisational management — AHC work-family system",
+  "subdomain": "holo",
+  "plan": "enterprise",
+  "branding": {
+    "primaryColor": "#01696f",
+    "secondaryColor": "#171614",
+    "fontDisplay": "Boska",
+    "fontBody": "General Sans"
+  },
+  "features": {
+    "widgets": ["stat-card", "feed-list", "tenant-switcher", "sweep-monitor", "branding-editor"],
+    "ingestion": ["webhook-generic", "scheduled-poll"],
+    "outputs": ["supabase-persist", "mcp-relay", "export-file"],
+    "templateTypes": ["org-report", "member-profile", "activity-summary"]
+  },
+  "repo": "TML-4PM/holo-org",
+  "status": "active"
+}
